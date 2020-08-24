@@ -33,6 +33,14 @@ img {
   height: auto;
 }
 
+h1 {
+  color: #518270;
+}
+
+h2 {
+  color: #518270;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

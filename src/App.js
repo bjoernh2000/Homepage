@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import NavigationBar from './components/NavigationBar';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {Home} from './components/Home';
-import {About} from './components/About';
-import {ErrorPage} from './components/ErrorPage';
-import {Projects} from './components/Projects';
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { ErrorPage } from "./components/ErrorPage";
+import { Projects } from "./components/Projects";
 
 export class App extends Component {
   render() {
@@ -22,8 +22,8 @@ export class App extends Component {
           </Switch>
         </Router>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default App
+export default App;
