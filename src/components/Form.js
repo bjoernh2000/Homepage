@@ -14,7 +14,7 @@ export class Form extends React.Component {
   render() {
     return (
       <form className="contact-mailing">
-        <h1>Contact me here directly</h1>
+        <h2>Contact me here directly</h2>
         <div>
           <label>Name</label>
           <input
@@ -33,7 +33,7 @@ export class Form extends React.Component {
             type="email"
             className="form-control"
             onChange={this.onEmailChange}
-            placeholder="example@email.com"
+            placeholder="yourEmail@example.com"
             required
             value={this.state.email}
             style={{ width: "50%" }}

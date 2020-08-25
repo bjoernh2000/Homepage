@@ -1,5 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 
-export const Home = props => (
-  <img src={require("../assets/DSC_0017.JPG")} alt="Bjoern" />
-);
+export class Home extends Component {
+  render() {
+    return (
+      <div>
+        <img src={require("../assets/DSC_0017.JPG")} alt="Bjoern" />
+      </div>
+    );
+  }
+}
+
+export default Home;

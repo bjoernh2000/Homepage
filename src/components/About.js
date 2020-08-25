@@ -20,23 +20,31 @@ const AboutWrap = styled.div`
 export const About = () => (
   <AboutWrap>
     <h1>About</h1>
-
-    <p>
+    <img
+      src={require("../assets/mmexport1535890633461 2.JPG")}
+      alt="Bjoern"
+      style={{
+        position: "absolute",
+        maxWidth: "500px",
+        right: "8%"
+      }}
+    />
+    <p style={{ maxWidth: "50%" }}>
       I am a Computer Science Major with a Business Administration Minor at
       Boston University. I am a junior Fall 2020.
     </p>
-    <p>
+    <p style={{ maxWidth: "50%" }}>
       A little about me: I lived in Germany until I was 10 taking the German
       Grundschule, after which I moved Shanghai, China for 8 years taking the IB
       Diploma program. For higher education, I then moved once again to take
       classes in Boston.
     </p>
-
     <h2>Contact Bjoern</h2>
     <GridWrapper>
       <h5>Email</h5>
       <p>bjoernh@bu.edu</p>
     </GridWrapper>
+    {/* Add if phone number required */}
     {/* <GridWrapper>
       <h4>Phone (bold - active)</h4>
       <p>+1 857-472-8458</p>
