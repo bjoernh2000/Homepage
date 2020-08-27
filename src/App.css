@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+.grid12-6 {
+  position: relative;
+}
+.grid12-6 .inner_box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  top: 45%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  padding: 35px;
+  text-align: center;
+}
+.grid12-6 .inner_box h3 {
+  font-family: arial;
+  text-align: center;
+  font-size: 26px;
+  font-weight: normal;
+  color: #777;
+}
+
 img {
   max-width: 100%;
   height: auto;

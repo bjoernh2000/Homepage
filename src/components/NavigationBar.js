@@ -8,8 +8,6 @@ export default function NavigationBar() {
       background-color: #444;
       width: 100%;
     }
-    a,
-    .navbar-nav,
     .navbar-light .nav-link {
       color: #9eeecb;
       &:hover {

@@ -8,6 +8,7 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
+import projList from "./Projects/projList.json";
 
 /* This defines the actual bar going down the screen */
 const StyledSideBar = styled.div`
@@ -24,14 +25,16 @@ export class SideBar extends Component {
   render() {
     return (
       <StyledSideBar>
-        <NavItem name={this.props.name} url={this.props.match.url} />
+        <NavItem projects={this.props.projects} url={this.props.match.url} />
       </StyledSideBar>
     );
   }
 }
 
 const StyledNavItem = styled.div`
-  max-width: 100px;
+  hover {
+    color: "green";
+  }
 `;
 
 class NavItem extends Component {
@@ -39,10 +42,10 @@ class NavItem extends Component {
     return (
       <StyledNavItem>
         <Link
-          to={`${this.props.url}/exampleTopic`}
+          to={`${this.props.url}/${this.props.projects.name}`}
           style={{ maxWidth: "80px" }}
         >
-          {this.props.name}
+          {this.props.projects.name}
         </Link>
       </StyledNavItem>
     );
