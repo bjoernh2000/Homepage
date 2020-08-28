@@ -6,24 +6,26 @@ import Switch from "react-bootstrap/esm/Switch";
 
 import { SeeAndSay } from "./Projects/SeeAndSay";
 import { Default } from "./Projects/Default";
+import { SortingAlgos } from "./Projects/SortingAlgos";
+import projList from "./Projects/projList.json";
 
 const StyledProj = styled.div`
   padding-left: 80px;
   padding-top: 1em;
 `;
 
+const Components = {
+  Default: Default,
+  SeeAndSay: SeeAndSay,
+  SortingAlgos: SortingAlgos
+};
+
 export class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-      projects: [
-        {
-          id: 12,
-          name: "SeeAndSay"
-        },
-        { id: 15, name: "Proj2" }
-      ]
+      projects: projList
     };
   }
 
@@ -33,6 +35,15 @@ export class Projects extends Component {
 
   render() {
     const { loading, projects } = this.state;
+    const routes = [];
+    for (const item of projects) {
+      routes.push(
+        <Route
+          path={`${this.props.match.path}/${item.name}`}
+          component={Components[item.name]}
+        />
+      );
+    }
     if (loading) {
       return <p>loading...</p>;
     } else {
@@ -46,10 +57,7 @@ export class Projects extends Component {
                 path={`${this.props.match.path}/`}
                 component={Default}
               />
-              <Route
-                path={`${this.props.match.path}/:topicId`}
-                component={SeeAndSay}
-              />
+              {routes}
             </Switch>
           </StyledProj>
         </div>

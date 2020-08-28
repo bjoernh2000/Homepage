@@ -1,6 +1,5 @@
-{
-  "projects": [
-    { "name": "SeeandSay", "id": 1 },
-    { "name": "Proj2", "id": 2 }
-  ]
-}
+[
+  { "name": "SeeAndSay", "id": 1 },
+  { "name": "Default", "id": 2 },
+  { "name": "SortingAlgos", "id": 3 }
+]

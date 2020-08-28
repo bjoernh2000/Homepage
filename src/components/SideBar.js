@@ -8,11 +8,9 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
-import projList from "./Projects/projList.json";
 
-/* This defines the actual bar going down the screen */
 const StyledSideBar = styled.div`
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: fit-content;
   background-color: #aaa;
