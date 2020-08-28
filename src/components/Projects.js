@@ -17,10 +17,13 @@ export class Projects extends Component {
     super(props);
     this.state = {
       loading: true,
-      projects: {
-        id: 12,
-        name: "SeeAndSay"
-      }
+      projects: [
+        {
+          id: 12,
+          name: "SeeAndSay"
+        },
+        { id: 15, name: "Proj2" }
+      ]
     };
   }
 

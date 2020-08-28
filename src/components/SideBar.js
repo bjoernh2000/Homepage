@@ -31,24 +31,37 @@ export class SideBar extends Component {
   }
 }
 
-const StyledNavItem = styled.div`
-  hover {
-    color: "green";
+const StyledNavItem = styled.div``;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
   }
+  &:hover {
+    color: white;
+  }
+  color: #6532e6;
 `;
 
 class NavItem extends Component {
   render() {
-    return (
-      <StyledNavItem>
-        <Link
-          to={`${this.props.url}/${this.props.projects.name}`}
-          style={{ maxWidth: "80px" }}
-        >
-          {this.props.projects.name}
-        </Link>
-      </StyledNavItem>
-    );
+    const projects = this.props.projects;
+    const components = [];
+    for (const item of projects) {
+      components.push(
+        <div>
+          <StyledLink to={`${this.props.url}/${item.name}`}>
+            {item.name}
+          </StyledLink>
+        </div>
+      );
+    }
+    return <StyledNavItem>{components}</StyledNavItem>;
   }
 }
 
