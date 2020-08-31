@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { mergeSortAnimation } from "./Sorting/mergeSort";
+import { bubbleSortAnimation } from "./Sorting/bubbleSort";
 import "./SortingAlgos.css";
 
 const StyledArray = styled.div`
@@ -87,6 +88,34 @@ export class SortingAlgos extends Component {
     }
   }
 
+  bubbleSort() {
+    const colors = bubbleSortAnimation(this.state.array.slice());
+    for (let i = 0; i < colors.length; i++) {
+      const [barOneIdx, barTwoIdx, swap] = colors[i];
+      setTimeout(() => {
+        let temp = this.state.arrayBarStyle.slice();
+        temp[barOneIdx] = Secondary;
+        temp[barTwoIdx] = Secondary;
+        this.setState({ arrayBarStyle: temp });
+      }, i * Speed);
+      setTimeout(() => {
+        let temp = this.state.arrayBarStyle.slice();
+        temp[barOneIdx] = Primary;
+        temp[barTwoIdx] = Primary;
+        this.setState({ arrayBarStyle: temp });
+      }, i * Speed + 9);
+      if (swap) {
+        setTimeout(() => {
+          let tempArray = this.state.array;
+          let temp = tempArray[barOneIdx];
+          tempArray[barOneIdx] = tempArray[barTwoIdx];
+          tempArray[barTwoIdx] = temp;
+          this.setState({ array: tempArray });
+        }, i * Speed);
+      }
+    }
+  }
+
   componentDidMount() {
     this.generateArray(this.state.numMax, this.state.arrayLen);
   }
@@ -135,6 +164,8 @@ export class SortingAlgos extends Component {
           </button>
           <div class="divider" />
           <button onClick={() => this.mergeSort()}>Merge Sort</button>
+          <div class="divider" />
+          <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
         </StyledArray>
       </div>
     );
