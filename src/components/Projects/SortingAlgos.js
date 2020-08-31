@@ -69,12 +69,13 @@ export class SortingAlgos extends Component {
           temp[barTwoIdx] = Secondary;
           this.setState({ arrayBarStyle: temp });
         }, i * Speed);
+
         setTimeout(() => {
           let temp = this.state.arrayBarStyle.slice();
           temp[barOneIdx] = Primary;
           temp[barTwoIdx] = Primary;
           this.setState({ arrayBarStyle: temp });
-        }, i * Speed);
+        }, i * Speed + 9);
       } else {
         setTimeout(() => {
           let temp = this.state.array.slice();
