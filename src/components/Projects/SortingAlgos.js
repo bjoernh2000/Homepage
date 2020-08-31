@@ -1,36 +1,148 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import { mergeSortAnimation } from "./Sorting/mergeSort";
+import "./SortingAlgos.css";
+
+const StyledArray = styled.div`
+  position: absolute;
+  left: 30%;
+  top: 80%;
+  width: 50%;
+`;
+
+const Bars = styled.div`
+  width: 3px;
+  display: inline-block;
+  margin: 0 1px;
+`;
+
+const Primary = "green";
+const Secondary = "red";
+const Speed = 3;
 
 export class SortingAlgos extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      array: []
+      array: [],
+      numMax: 150,
+      arrayLen: 100,
+      arrayBarStyle: []
     };
+    this.onNumChange = this.onNumChange.bind(this);
+    this.onLenChange = this.onLenChange.bind(this);
   }
 
   generateArray(numMax, arrayLen) {
     const array = [];
-    while (array.length < arrayLen) {
+    const arrayBarStyle = [];
+    for (let i = 0; i < arrayLen; i++) {
       var r = Math.floor(Math.random() * numMax) + 1;
-      if (array.indexOf(r) === -1) array.push(r);
+      array.push(r);
+      arrayBarStyle.push(Primary);
     }
     this.setState({ array });
+    this.setState({ arrayBarStyle });
+  }
+
+  areEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  mergeSort() {
+    const colors = mergeSortAnimation(this.state.array.slice());
+    for (let i = 0; i < colors.length; i++) {
+      if (i % 2 === 0) {
+        const [barOneIdx, barTwoIdx] = colors[i];
+        setTimeout(() => {
+          let temp = this.state.arrayBarStyle.slice();
+          temp[barOneIdx] = Secondary;
+          temp[barTwoIdx] = Secondary;
+          this.setState({ arrayBarStyle: temp });
+        }, i * Speed);
+        setTimeout(() => {
+          let temp = this.state.arrayBarStyle.slice();
+          temp[barOneIdx] = Primary;
+          temp[barTwoIdx] = Primary;
+          this.setState({ arrayBarStyle: temp });
+        }, i * Speed);
+      } else {
+        setTimeout(() => {
+          let temp = this.state.array.slice();
+          const [barOneIdx, newHeight] = colors[i];
+          temp[barOneIdx] = newHeight;
+          this.setState({ array: temp });
+        }, i * Speed);
+      }
+    }
   }
 
   componentDidMount() {
-    this.generateArray(100, 100);
+    this.generateArray(this.state.numMax, this.state.arrayLen);
   }
-
   render() {
-    const { array } = this.state;
     return (
       <div>
-        {array.map((val, ind) => (
-          <div key={ind}>{val}</div>
-        ))}
+        <h1>Sorting Algorithm Visualiser</h1>
+        <br />
+        <StyledArray>
+          {this.state.array.map((val, ind) => (
+            <Bars
+              key={ind}
+              style={{
+                backgroundColor: this.state.arrayBarStyle[ind],
+                height: `${val * 2}px`
+              }}
+              id="array-bars"
+            ></Bars>
+          ))}
+          <br />
+          <label>Max Number</label>
+          <input
+            type="number"
+            className="form-control"
+            onChange={this.onNumChange}
+            required
+            value={this.state.numMax}
+            style={{ width: "175px" }}
+          />
+          <label>Array Length</label>
+          <input
+            type="number"
+            className="form-control"
+            onChange={this.onLenChange}
+            required
+            value={this.state.arrayLen}
+            style={{ width: "175px" }}
+          />
+          <br />
+          <button
+            onClick={() =>
+              this.generateArray(this.state.numMax, this.state.arrayLen)
+            }
+          >
+            Generate a New Array
+          </button>
+          <div class="divider" />
+          <button onClick={() => this.mergeSort()}>Merge Sort</button>
+        </StyledArray>
       </div>
     );
+  }
+  onNumChange(event) {
+    this.setState({ numMax: event.target.value });
+  }
+  onLenChange(event) {
+    this.setState({ arrayLen: event.target.value });
   }
 }
 

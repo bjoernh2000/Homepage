@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { SideBar } from "./SideBar";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Switch from "react-bootstrap/esm/Switch";
 
 import { SeeAndSay } from "./Projects/SeeAndSay";
@@ -10,7 +10,7 @@ import { SortingAlgos } from "./Projects/SortingAlgos";
 import projList from "./Projects/projList.json";
 
 const StyledProj = styled.div`
-  padding-left: 80px;
+  padding-left: 100px;
   padding-top: 1em;
 `;
 

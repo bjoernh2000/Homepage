@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StyledSideBar = styled.div`
   position: absolute;
@@ -43,7 +36,7 @@ const StyledLink = styled(Link)`
   &:hover {
     color: white;
   }
-  color: #6532e6;
+  color: darkgreen;
 `;
 
 class NavItem extends Component {
@@ -52,14 +45,14 @@ class NavItem extends Component {
     const components = [];
     for (const item of projects) {
       components.push(
-        <div>
+        <StyledNavItem>
           <StyledLink to={`${this.props.url}/${item.name}`}>
             {item.name}
           </StyledLink>
-        </div>
+        </StyledNavItem>
       );
     }
-    return <StyledNavItem>{components}</StyledNavItem>;
+    return <div>{components}</div>;
   }
 }
 
