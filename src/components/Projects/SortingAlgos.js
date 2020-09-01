@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { mergeSortAnimation } from "./Sorting/mergeSort";
 import { bubbleSortAnimation } from "./Sorting/bubbleSort";
+import { quickSortAnimation } from "./Sorting/quickSort";
 import "./SortingAlgos.css";
 
 const StyledArray = styled.div`
@@ -19,6 +20,7 @@ const Bars = styled.div`
 
 const Primary = "green";
 const Secondary = "red";
+const PivotColor = "purple";
 const Speed = 3;
 
 export class SortingAlgos extends Component {
@@ -116,6 +118,10 @@ export class SortingAlgos extends Component {
     }
   }
 
+  quickSort() {
+    const colors = quickSortAnimation(this.state.array.slice());
+  }
+
   componentDidMount() {
     this.generateArray(this.state.numMax, this.state.arrayLen);
   }
@@ -166,6 +172,8 @@ export class SortingAlgos extends Component {
           <button onClick={() => this.mergeSort()}>Merge Sort</button>
           <div class="divider" />
           <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+          <div class="divider" />
+          <button onClick={() => this.quickSort()}>Quick Sort</button>
         </StyledArray>
       </div>
     );
