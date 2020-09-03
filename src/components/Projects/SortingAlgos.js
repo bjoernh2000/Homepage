@@ -21,6 +21,7 @@ const Bars = styled.div`
 const Primary = "green";
 const Secondary = "red";
 const PivotColor = "purple";
+const Sorted = "lightgreen";
 const Speed = 3;
 
 export class SortingAlgos extends Component {
@@ -88,6 +89,11 @@ export class SortingAlgos extends Component {
         }, i * Speed);
       }
     }
+    let temp = [];
+    for (let i = 0; i < this.arrayBarStyle.length; i++) {
+      temp.push(Sorted);
+    }
+    this.setState({ arrayBarStyle: temp });
   }
 
   bubbleSort() {

@@ -7,6 +7,10 @@ import Switch from "react-bootstrap/esm/Switch";
 import { SeeAndSay } from "./Projects/SeeAndSay";
 import { Default } from "./Projects/Default";
 import { SortingAlgos } from "./Projects/SortingAlgos";
+import { AirBnBLite } from "./Projects/AirBnBLite";
+import { Agriworks } from "./Projects/Agriworks";
+import { Phishing } from "./Projects/Phishing";
+import { Interpreter } from "./Projects/Interpreter";
 import projList from "./Projects/projList.json";
 
 const StyledProj = styled.div`
@@ -17,7 +21,11 @@ const StyledProj = styled.div`
 const Components = {
   Default: Default,
   SeeAndSay: SeeAndSay,
-  SortingAlgos: SortingAlgos
+  SortingAlgos: SortingAlgos,
+  AirBnBLite: AirBnBLite,
+  Agriworks: Agriworks,
+  Phishing: Phishing,
+  Interpreter: Interpreter
 };
 
 export class Projects extends Component {

@@ -6,7 +6,7 @@ const StyledSideBar = styled.div`
   position: absolute;
   height: 100%;
   width: fit-content;
-  background-color: #aaa;
+  background-color: #bdbdbd;
   padding-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
@@ -36,7 +36,7 @@ const StyledLink = styled(Link)`
   &:hover {
     color: white;
   }
-  color: darkgreen;
+  color: #388e3c;
 `;
 
 class NavItem extends Component {

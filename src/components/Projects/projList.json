@@ -1,4 +1,8 @@
 [
   { "name": "SeeAndSay", "id": 1 },
-  { "name": "SortingAlgos", "id": 3 }
+  { "name": "SortingAlgos", "id": 3 },
+  { "name": "AirBnBLite", "id": 4 },
+  { "name": "Agriworks", "id": 5 },
+  { "name": "Phishing", "id": 6 },
+  { "name": "Interpreter", "id": 7 }
 ]
