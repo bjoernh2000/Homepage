@@ -27,6 +27,9 @@ export class SeeAndSay extends Component {
           with the automated speech. In the end, we powered through and finished
           our app - See and Say.
         </p>
+        <a href="https://github.com/bjoernh2000/BostonHacks">
+          Visit the GitHub
+        </a>
         <h2>Built with</h2>
         <p>Swift, Xcode</p>
       </div>

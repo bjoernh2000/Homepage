@@ -89,11 +89,11 @@ export class SortingAlgos extends Component {
         }, i * Speed);
       }
     }
-    let temp = [];
-    for (let i = 0; i < this.arrayBarStyle.length; i++) {
-      temp.push(Sorted);
-    }
-    this.setState({ arrayBarStyle: temp });
+    // let temp = [];
+    // for (let i = 0; i < this.arrayBarStyle.length; i++) {
+    //   temp.push(Sorted);
+    // }
+    // this.setState({ arrayBarStyle: temp });
   }
 
   bubbleSort() {
