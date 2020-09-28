@@ -15,9 +15,12 @@ export class App extends Component {
         <Router>
           <NavigationBar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/projects" component={Projects} />
+            <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
+            <Route path={process.env.PUBLIC_URL + "/about"} component={About} />
+            <Route
+              path={process.env.PUBLIC_URL + "/projects"}
+              component={Projects}
+            />
             <Route component={ErrorPage} />
           </Switch>
         </Router>
